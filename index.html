@@ -2,23 +2,17 @@
 <html>
 	<head>
 		<metacharset="UTF-8">
-		<title>SCAF</title>
-		<meta content="Официальный сайт SCAF Development" property="og:title" />
-		<meta content="Прекрасный сервер, посвящённый разработке мода на всеми известный майнкрафт." property="og:description" />
-		<meta content="https://scaf.ml" property="og:url" />
-		<meta content="https://media.discordapp.net/attachments/967780807441793094/1018623591710990376/unknown.png" property="og:image" />
-		<meta content="#116062" data-react-helmet="true" name="theme-color" />
-		<meta name="twitter:card" content="summary_large_image">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="./style.css">
+		<title>SCAF</title>
 	</head>
-	<style>	
-		@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+	<style>
+		@font-face {
+			src: url('minecraft-5-bold.otf') format('woff');
+			font-family: 'Minecraft-Five-Bold';
+		}
 		
 		body {
-			background: url("https://i.pinimg.com/originals/c7/69/5c/c7695ca9520f1909f80dafd2e8a5f177.gif") grey no-repeat;
-			background-size: auto 100vh;
-			background-position: center top;
+			background: #000;
 		}
 		
 		.content {
@@ -28,17 +22,15 @@
 			left: 0;
 			top: 0;
 			margin: 0 auto;
-			backdrop-filter: blur(0.9vh);
 		}
 		
-		.error {
-			font-family: 'Raleway', sans-serif;
-			color: rgba(255, 255, 255, .5);
-			text-shadow: 0 0 10px rgba(0, 0, 0, .5);
+		.message {
+			font-family: 'Minecraft-Five-Bold', sans-serif;
+			color: #fff;
 			white-space: nowrap;
 			text-align: center;
-			font-weight: 400;
-			font-size: 20px;
+			font-weight: 800;
+			font-size: 32px;
 			position: fixed;
 			top: 50%;
 			left: 50%;
@@ -46,16 +38,24 @@
 		}
 	</style>
 	<body>
-		
 		<div class="content">
-			<div class="error">
-				Сайт в разработке!
-				<br><br>
-				BTC: bc1q2nhxwm2mt4r69qpa702y00fsm9cz9jz3yc6ghs
-				<br>
-				ETH: 0xc66c3d2da7f1f8cb00bc66aad2b08afdedfee29a
+			<div class="message">
+				<img width="200px" src="./logo.png"><br>
+				<span id="splash"></span>
 			</div>
 		</div>
-
+		
+		<script>
+			const splashTexts = [
+				'. . .',
+				'? ? ?',
+				'! ! !',
+				'в розробці...',
+				'в разработке...',
+				'in progress...'
+			];
+			
+			document.querySelector('#splash').textContent = splashTexts[Math.floor(Math.random() * splashTexts.length)];
+		</script>
 	</body>
 </html>
