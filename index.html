@@ -15,7 +15,7 @@
 			background: #000;
 		}
 		
-		.content {
+		.container {
 			width: 100%;
 			height: 100%;
 			position: absolute;
@@ -24,7 +24,7 @@
 			margin: 0 auto;
 		}
 		
-		.message {
+		.main-content {
 			font-family: 'Minecraft-Five-Bold', sans-serif;
 			color: #fff;
 			white-space: nowrap;
@@ -36,26 +36,37 @@
 			left: 50%;
 			transform: translate(-50%, -50%);
 		}
+		
+		.logo {
+			width: 180px;
+			position: absolute;
+			transform: translateX(-100%) scale(.88);
+		}
+		
+		.rounded-text {
+			font-family: 'Minecraft-Five-Bold', sans-serif;
+			fill: #fff;
+			font-size: 11px;
+			transform-origin: center;
+			animation: spin 10s linear infinite;
+		}
+		
+		@keyframes spin {
+			from { transform: rotate(0deg) }
+			to { transform: rotate(360deg) }
+		}
 	</style>
 	<body>
-		<div class="content">
-			<div class="message">
-				<img width="200px" src="./logo.png"><br>
-				<span id="splash"></span>
+		<div class="container">
+			<div class="main-content">
+				<svg viewBox="0 0 100 100" width="180" height="180">
+					<defs><path id="circle" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"/></defs>
+					<text class="rounded-text">
+						<textPath xlink:href="#circle">development • development • </textPath>
+					</text>
+				</svg>
+				<img class="logo" src="./logo.png">
 			</div>
 		</div>
-		
-		<script>
-			const splashTexts = [
-				'. . .',
-				'? ? ?',
-				'! ! !',
-				'в розробці...',
-				'в разработке...',
-				'in progress...'
-			];
-			
-			document.querySelector('#splash').textContent = splashTexts[Math.floor(Math.random() * splashTexts.length)];
-		</script>
 	</body>
 </html>
